@@ -1,0 +1,18 @@
+version: 0.2
+phases:
+  install:
+    runtime-versions:
+        nodejs: 10
+  build:
+    commands:
+      - npm install
+artifacts:
+  type: zip
+  files:
+    - template.json
+    - package.json
+    - promote.yml
+    - revert.yml
+    - index.json
+    - lib/**/*
+    - src/**/*
