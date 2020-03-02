@@ -1,0 +1,15 @@
+# Static config - everything here is available verbatim in configuration().
+
+a_string: a_value
+another_string: another_value
+
+other_config:
+  - might
+  - be
+  - a
+  - list
+  - for
+  - instance
+
+env:
+  Test

@@ -3,19 +3,44 @@
   "AWSTemplateFormatVersion": "2010-09-09",
   "Description": "AWS CloudFormation template that contains a Lambda function behind an API Gateway that has two stages mapped to two Lambda alias",
 
+  "Parameters":{
+    "BuildOutputBucket": {
+      "Type": "AWS::S3::Bucket"
+    }
+  },
+
   "Resources": {
 
     "Lambda": {
       "Type": "AWS::Lambda::Function",
       "Properties": {
-        "Code": {
+        "Code":{
           "ZipFile": { "Fn::Join": ["\n", [
-            "exports.lambda_handler = function (event, context) {",
-            "	console.log(event);",
-            "	context.succeed('hello bhai jan1' + event.name);",
-           " };"    
-          ]]}
-        },
+               "import logginga",
+               "import os",
+               "import yaml",
+               "import pprint",
+
+               "from utils.helpers import Helpersmport mport os",
+               "from utils.helpers import Helpersmport os",
+               
+               
+
+               "def handler(event, context):",
+                   "logger = Helpers.setup_logging(context.aws_request_id)",
+                   "config = configuration()",
+
+                   "pprint.pprint(config)",
+
+    "logger.info('This is being invoked from AWS account: {0}'.format( Helpers.aws_account_id()))",
+
+                  "return {'Success': True}",
+
+
+                  "if __name__ == '__main__':",
+                  "from utils.localcontext import LocalContext",
+                  "handler(None, LocalContext())"
+          ]]},
         "Description": "A Lambada function",
         "FunctionName": "Lambda",
         "Handler": "index.handler",
