@@ -32,7 +32,7 @@ phases:
       - sonar_task_id=$(echo $result | egrep -o "task\?id=[^ ]+" | cut -d'=' -f2)
       - | # Allow time for SonarQube Background Task to complete
         stat="PENDING";
-        while [ "$stat" != "SUCCESS" ]; do
+        while [ $stat != "SUCCESS" ]; do
           if [ $stat = "FAILED" ] || [ $stat = "CANCELLED" ]; then
             echo "SonarCloud task $sonar_task_id failed";
             exit 1;
